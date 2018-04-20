@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">internninja</string>
+    <string name="secure_google_login">Secure google login</string>
+    <string name="bring_your_own_sunshine">Bring your own Sunshine</string>
 </resources>

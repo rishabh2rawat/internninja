@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--  splash activity  -->
+        <!-- splash activity -->
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -18,20 +18,24 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>`
-
+            </intent-filter>
+            `
         </activity>
 
-        <!--    Login activity    -->
-        <activity android:name=".LoginActivity"
-          android:theme="@style/AppTheme.NoActionBar"
-            >
+        <!-- Login activity -->
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".IntroActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".HomeActivity" />
     </application>
 
 </manifest>
