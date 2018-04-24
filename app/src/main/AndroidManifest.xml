@@ -35,7 +35,12 @@
         <activity
             android:name=".IntroActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".HomeActivity" />
+        <activity android:name=".HomeActivity"
+            />
+        <activity android:name=".PlotActivity"
+            android:noHistory="true"
+
+            ></activity>
     </application>
 
 </manifest>
