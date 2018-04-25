@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "578599091458",
+    "firebase_url": "https://internninja-c3e10.firebaseio.com",
+    "project_id": "internninja-c3e10",
+    "storage_bucket": "internninja-c3e10.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578599091458:android:f4d7bae2fe7693de",
+        "android_client_info": {
+          "package_name": "com.rishabhrawat.internninja"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578599091458-32qqd6pt5d9httpnhr7f5oic4c9r73o4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rishabhrawat.internninja",
+            "certificate_hash": "882cf955f00174a4fa8f8490d7bc7393327e04a4"
+          }
+        },
+        {
+          "client_id": "578599091458-b5e37h5btgqetp7v729m394smipdc02d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6nfVC_5A5LK_JUd6SiZIRfEapHkdKLbU"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578599091458-b5e37h5btgqetp7v729m394smipdc02d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

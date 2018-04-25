@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PlotActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Set Range"
+        android:textColor="@android:color/black"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:padding="3dp"
+        android:textSize="16dp"
+        />
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="10dp"
+
+        android:padding="3dp"
+        android:orientation="horizontal"
+
+        >
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="min value"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:id="@+id/min"
+            />
+        <android.support.v7.widget.AppCompatEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="max value"
+            android:layout_weight="1"
+            android:inputType="number"
+            android:id="@+id/max"
+            />
+
+    </LinearLayout>
+    <Button
+        android:backgroundTint="@color/colorPrimary"
+        android:id="@+id/refreshbtn"
+        android:layout_below="@+id/ll1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Refresh"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:textColor="@android:color/white"
+        />
+
+
+
+    <com.github.mikephil.charting.charts.PieChart
+        android:layout_below="@+id/refreshbtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/pie"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        >
+
+
+
+    </com.github.mikephil.charting.charts.PieChart>
+
+</RelativeLayout>
