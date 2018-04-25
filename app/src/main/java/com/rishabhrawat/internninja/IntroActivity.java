@@ -36,25 +36,20 @@ public class IntroActivity extends AppCompatActivity {
     String uid;
     String phoneno;
 
-    private DatabaseReference mDatabase,mDatabase1,mDatabase2;
+    private DatabaseReference mDatabase, mDatabase1, mDatabase2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_intro);
 
+        sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE);
 
+        firstTime = sharedPreferences.getBoolean("firstTime", true);
 
-        sharedPreferences=getSharedPreferences("MyPrefs",MODE_PRIVATE);
-
-        firstTime=sharedPreferences.getBoolean("firstTime",true);
-
-        if(firstTime) {
-
-
+        if (firstTime) {
             textContinue = (TextView) findViewById(R.id.textcontinue);
             mAuth = FirebaseAuth.getInstance();
-
 
             mAuthListener = new FirebaseAuth.AuthStateListener() {
                 @Override
@@ -69,19 +64,15 @@ public class IntroActivity extends AppCompatActivity {
             textContinue.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
-
                     SharedPreferences.Editor editor = sharedPreferences.edit();
-                    firstTime=false;
-                    editor.putBoolean("firstTime",firstTime);
+                    firstTime = false;
+                    editor.putBoolean("firstTime", firstTime);
                     editor.apply();
                     Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
                 }
             });
-
-
 
 
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -91,16 +82,17 @@ public class IntroActivity extends AppCompatActivity {
                 email = user.getEmail();
                 photoUrl = user.getPhotoUrl();
                 uid = user.getUid();
-                phoneno=user.getPhoneNumber();
+                phoneno = user.getPhoneNumber();
 
 
             }
 
-            profileImage=(CircleImageView)findViewById(R.id.profile_photo);
-            profilename=(TextView)findViewById(R.id.profile_name);
-            profileemail=(TextView)findViewById(R.id.profile_email);
-            profilephone=(TextView)findViewById(R.id.profile_phone);
-            profileweb=(TextView)findViewById(R.id.profile_web);
+            /*linking layout item*/
+            profileImage = (CircleImageView) findViewById(R.id.profile_photo);
+            profilename = (TextView) findViewById(R.id.profile_name);
+            profileemail = (TextView) findViewById(R.id.profile_email);
+            profilephone = (TextView) findViewById(R.id.profile_phone);
+            profileweb = (TextView) findViewById(R.id.profile_web);
 
             Glide.with(getBaseContext()).load(photoUrl).into(profileImage);
             profilename.setText(name);
@@ -109,10 +101,7 @@ public class IntroActivity extends AppCompatActivity {
             profileweb.setText("https://www.rishabhisin.com");
 
 
-
-        }
-        else
-        {
+        } else {
 
             Intent intent = new Intent(IntroActivity.this, HomeActivity.class);
             startActivity(intent);

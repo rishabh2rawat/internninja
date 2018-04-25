@@ -4,9 +4,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    tools:context=".HomeActivity"
     android:orientation="vertical"
-    >
+    tools:context=".HomeActivity">
 
     <RelativeLayout
         android:id="@+id/addcontainer"
@@ -22,11 +21,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="10dp"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
-                >
+                android:orientation="vertical"
+                android:padding="10dp">
                 <!--*************************expences**************-->
                 <TextView
                     android:layout_width="match_parent"
@@ -40,12 +38,12 @@
                     android:id="@+id/expence"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="enter expences integer"
-                    android:singleLine="true"
-                    android:inputType="number"
                     android:digits="0123456789"
+                    android:hint="enter expences integer"
+                    android:inputType="number"
+                    android:singleLine="true"
 
-                     />
+                    />
                 <!--*************************description*****************-->
                 <TextView
                     android:layout_width="match_parent"
@@ -61,11 +59,12 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="enter description"
-                    android:singleLine="true"
                     android:inputType="text"
+                    android:singleLine="true"
 
-                     />
+                    />
 
+                <!--add btn-->
                 <Button
                     android:id="@+id/addbtn"
                     android:layout_width="match_parent"
@@ -81,77 +80,73 @@
 
 
     </RelativeLayout>
+
     <LinearLayout
-        android:layout_below="@+id/addcontainer"
         android:id="@+id/lly"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addcontainer"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
+        android:orientation="horizontal"
 
-    >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Description"
-        android:layout_weight="1"
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        />
-    <TextView
-        android:textStyle="bold"
-        android:textColor="@android:color/black"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Expences"
-        android:layout_weight="1"
-        />
+        >
 
-</LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Description"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Expences"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+
+    </LinearLayout>
 
     <LinearLayout
-        android:layout_below="@+id/lly"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center"
+        android:layout_below="@+id/lly"
         android:layout_marginBottom="50dp"
-        >
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ListView
             android:id="@+id/listexp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scrollbars="none"
             android:overScrollMode="never"
-            >
-        </ListView>
+            android:scrollbars="none"></ListView>
 
         <ListView
-            android:fadingEdge="none"
             android:id="@+id/listdesc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:overScrollMode="never"
-            >
+            android:fadingEdge="none"
+            android:overScrollMode="never">
 
         </ListView>
 
 
     </LinearLayout>
+
     <Button
+        android:id="@+id/plotbtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         android:text="Plot"
-        android:textColor="@android:color/white"
-        android:id="@+id/plotbtn"
-        />
-
+        android:textColor="@android:color/white" />
 
 
 </RelativeLayout>

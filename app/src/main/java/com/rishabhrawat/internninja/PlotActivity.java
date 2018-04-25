@@ -49,7 +49,7 @@ public class PlotActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_plot);
 
-
+        /*----------------------------------connecting the layouts--------------------------------------------*/
         pieChart = (PieChart) findViewById(R.id.pie);
         min = (EditText) findViewById(R.id.min);
         max = (EditText) findViewById(R.id.max);

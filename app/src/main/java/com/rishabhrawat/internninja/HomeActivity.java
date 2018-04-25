@@ -28,12 +28,12 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    private DatabaseReference mDatabase,mDatabase1,mDatabase2;
+    private DatabaseReference mDatabase, mDatabase1, mDatabase2;
 
     EditText expence;
     EditText description;
-    Button addbtn,plotbtn;
-    ListView listViewdesc,listViewexp;
+    Button addbtn, plotbtn;
+    ListView listViewdesc, listViewexp;
     View clickSource;
     View touchSource;
 
@@ -42,9 +42,9 @@ public class HomeActivity extends AppCompatActivity {
     int exp;
     String ex;
     String desc;
-    private ArrayList<String> mDescription=new ArrayList<String>();
-    private ArrayList<Long> mExpence=new ArrayList<Long>();
-    private ArrayList<Integer> mExp=new ArrayList<>();
+    private ArrayList<String> mDescription = new ArrayList<String>();
+    private ArrayList<Long> mExpence = new ArrayList<Long>();
+    private ArrayList<Integer> mExp = new ArrayList<>();
 
 
     @Override
@@ -59,21 +59,20 @@ public class HomeActivity extends AppCompatActivity {
         description = (EditText) findViewById(R.id.desc);
         addbtn = (Button) findViewById(R.id.addbtn);
         listViewdesc = (ListView) findViewById(R.id.listdesc);
-        listViewexp=(ListView)findViewById(R.id.listexp);
-        plotbtn=(Button) findViewById(R.id.plotbtn);
+        listViewexp = (ListView) findViewById(R.id.listexp);
+        plotbtn = (Button) findViewById(R.id.plotbtn);
 
 
-
-
+/*******************list view scroll setting --------------------------------*/
         listViewdesc.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(touchSource == null)
+                if (touchSource == null)
                     touchSource = v;
 
-                if(v == touchSource) {
+                if (v == touchSource) {
                     listViewexp.dispatchTouchEvent(event);
-                    if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                         clickSource = v;
                         touchSource = null;
                     }
@@ -86,12 +85,12 @@ public class HomeActivity extends AppCompatActivity {
         listViewexp.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if(touchSource == null)
+                if (touchSource == null)
                     touchSource = v;
 
-                if(v == touchSource) {
+                if (v == touchSource) {
                     listViewdesc.dispatchTouchEvent(event);
-                    if(event.getAction() == MotionEvent.ACTION_UP) {
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
                         clickSource = v;
                         touchSource = null;
                     }
@@ -117,17 +116,17 @@ public class HomeActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase1 = FirebaseDatabase.getInstance().getReference().child(user.getUid()).child("description");
 
-     final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mDescription);
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, mDescription);
         listViewdesc.setAdapter(arrayAdapter);
 
-     mDatabase1.addChildEventListener(new ChildEventListener() {
+        /***************************************Description*******************************************/
+        mDatabase1.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
 
                 String valuedesc = dataSnapshot.getValue(String.class);
                 mDescription.add(valuedesc);
                 arrayAdapter.notifyDataSetChanged();
-
 
 
             }
@@ -160,7 +159,7 @@ public class HomeActivity extends AppCompatActivity {
         mDatabase2.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-              Long valueexp = dataSnapshot.getValue(Long.class);
+                Long valueexp = dataSnapshot.getValue(Long.class);
                 mExpence.add(valueexp);
                 arrayAdapter1.notifyDataSetChanged();
             }
@@ -186,11 +185,10 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        for(int i=0;i<mExpence.size();i++)
-        {
-            int a=mExpence.get(i).intValue();
+        for (int i = 0; i < mExpence.size(); i++) {
+            int a = mExpence.get(i).intValue();
             mExp.add(a);
-            Log.d("Rishabh", "onCreate: +++++++++++++++++++++++++++"+mExp.get(i));
+            Log.d("Rishabh", "onCreate: +++++++++++++++++++++++++++" + mExp.get(i));
         }
 
 
@@ -202,13 +200,11 @@ public class HomeActivity extends AppCompatActivity {
                 ex = expence.getText().toString();
                 desc = description.getText().toString();
 
-                if(ex.equals("")||desc.equals(""))
-                {
+                if (ex.equals("") || desc.equals("")) {
                     Toast.makeText(HomeActivity.this, "Enter the values", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
 
-                    exp=Integer.parseInt(ex);
+                    exp = Integer.parseInt(ex);
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     mDatabase1 = FirebaseDatabase.getInstance().getReference();
                     mDatabase1.child(user.getUid()).child("description").child(desc).setValue(desc);
@@ -232,25 +228,24 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                for(int i=0;i<mExpence.size();i++)
-                {
-                    int a=mExpence.get(i).intValue();
+                for (int i = 0; i < mExpence.size(); i++) {
+                    int a = mExpence.get(i).intValue();
                     mExp.add(a);
-                    Log.d("Rishabh", "onCreate: +++++++++++++++++++++++++++"+mExp.get(i));
+                    Log.d("Rishabh", "onCreate: +++++++++++++++++++++++++++" + mExp.get(i));
                 }
 
-                Intent intent=new Intent(HomeActivity.this,PlotActivity.class);
+                Intent intent = new Intent(HomeActivity.this, PlotActivity.class);
 
-                intent.putIntegerArrayListExtra("Expence",mExp);
-                intent.putStringArrayListExtra("Description",mDescription);
+                intent.putIntegerArrayListExtra("Expence", mExp);
+                intent.putStringArrayListExtra("Description", mDescription);
                 startActivity(intent);
                 finish();
             }
         });
 
 
-
     }
+
     // menue item in the top corner
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -269,6 +264,7 @@ public class HomeActivity extends AppCompatActivity {
 
         }
     }
+
     @Override
     protected void onStart() {
         super.onStart();

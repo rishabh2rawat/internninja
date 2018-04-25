@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mProgressbar=(ProgressBar) findViewById(R.id.pbar);
+        mProgressbar = (ProgressBar) findViewById(R.id.pbar);
         mgooglebtn = (SignInButton) findViewById(R.id.signupbtn);
         info = (TextView) findViewById(R.id.info);
 
